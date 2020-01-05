@@ -36,7 +36,10 @@ def main():
     parser.add_argument('--mode', type=str, default='A', choices=['A', 'B'],  help='')
 
     parser.add_argument('--singan_mode', type=str, help='', default='random_samples')
+    parser.add_argument('--singan_mode_dir', type=str, help='', default='./SinGAN_C')
     # parser.add_argument('--singan_ref_mode_name', type=str, help='', default=None)
+    
+    parser.add_argument('--sample_size', type=int, help='', default=1)
 
     opts = parser.parse_args()
 
@@ -45,7 +48,7 @@ def main():
         from SinGAN.SinGAN import functions
         from SinGAN.SinGAN.manipulate import SinGAN_generate
     elif opts.mode == 'B':
-        sys.path.append('./SinGAN_B_Upsample')
+        sys.path.append(opts.singan_mode_dir)
         from SinGAN import functions
         from SinGAN.manipulate import SinGAN_generate_V3
     else:
@@ -177,7 +180,7 @@ def main():
 
         seg_img = functions.np2torch(np.array(seg_img), singan_opt)
 
-        singan_dir = 'SinGAN_B_Upsample/TrainedModels/%s/scale_factor=%f_seg' % (
+        singan_dir = '%s/TrainedModels/%s/scale_factor=%f_seg' % (opts.singan_mode_dir, 
             opts.singan_model, 0.75)
         originals = torch.load(os.path.join(singan_dir, 'segs.pth'))
         h, w = originals[-1].shape[2:]
@@ -202,7 +205,7 @@ def main():
         # reals = torch.load(os.path.join(singan_dir, 'reals.pth'))
         NoiseAmp = torch.load(os.path.join(singan_dir, 'NoiseAmp.pth'))
         in_s = functions.generate_in2coarsest(seg_imgs, 1, 1, singan_opt)
-        SinGAN_generate_V3(Gs, Zs, seg_imgs, NoiseAmp, singan_opt, None, num_samples=50)
+        SinGAN_generate_V3(Gs, Zs, seg_imgs, NoiseAmp, singan_opt, None, num_samples=opts.sample_size)
 
 
 if __name__ == '__main__':
