@@ -1,0 +1,10 @@
+DataSets/
+.idea/
+ppt/
+*__pycache__/
+SinGAN_Output/
+modified folder
+batch.txt
+*.png
+*.jpg
+*.pth
