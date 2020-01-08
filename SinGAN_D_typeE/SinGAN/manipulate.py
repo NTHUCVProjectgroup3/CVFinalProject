@@ -225,7 +225,7 @@ def SinGAN_generate_V3(Gs,Zs,segs,NoiseAmp,opt,in_s=None,scale_v=1,scale_h=1,n=0
                 z_curr = m(z_curr)
             else:
                 #z_curr = functions.generate_noise([opt.nc_z,nzx,nzy], device=opt.device)
-                z_curr = segs[n-1]
+                z_curr = segs[n]
                 z_curr = m(z_curr)
             if images_prev == []:
                 I_prev =  m(in_s)
@@ -246,12 +246,15 @@ def SinGAN_generate_V3(Gs,Zs,segs,NoiseAmp,opt,in_s=None,scale_v=1,scale_h=1,n=0
 
             z_in = noise_amp*(z_curr)+I_prev
             I_curr = G(z_in,I_prev)
+            # print('n:%d segs:%d Gs:%s' % (n, len(segs), len(Gs)))
+            # print(I_curr.size())
 
-            if n == len(segs)-1:
+            if n == len(segs)-2:
                 if opt.mode == 'train':
                     dir2save = '%s/RandomSamples/%s/gen_start_scale=%d' % (opt.out, opt.input_name[:-4], gen_start_scale)
                 else:
                     dir2save = functions.generate_dir2save(opt)
+                print(dir2save)
                 
                 try:
                     os.makedirs(dir2save)

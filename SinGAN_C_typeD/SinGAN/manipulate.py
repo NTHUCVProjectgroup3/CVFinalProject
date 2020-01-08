@@ -244,8 +244,9 @@ def SinGAN_generate_V3(Gs,Zs,segs,NoiseAmp,opt,in_s=None,scale_v=1,scale_h=1,n=0
 
             z_in = noise_amp*(z_curr)+I_prev
             I_curr = G(z_in.detach(),I_prev,m(segs[n]))
+            # print('segs:%d Gs:%d' % (len(segs), len(Gs)))
 
-            if n == len(segs)-1:
+            if n == len(segs)-3:
                 if opt.mode == 'train':
                     dir2save = '%s/RandomSamples/%s/gen_start_scale=%d' % (opt.out, opt.input_name[:-4], gen_start_scale)
                 else:

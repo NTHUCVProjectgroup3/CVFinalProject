@@ -225,7 +225,7 @@ def SinGAN_generate_V3(Gs,Zs,segs,NoiseAmp,opt,in_s=None,scale_v=1,scale_h=1,n=0
                 z_curr = m(z_curr)
             else:
                 #z_curr = functions.generate_noise([opt.nc_z,nzx,nzy], device=opt.device)
-                z_curr = segs[n-1]
+                z_curr = segs[n]
                 z_curr = m(z_curr)
             if images_prev == []:
                 I_prev =  m(in_s)
