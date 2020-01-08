@@ -1,5 +1,8 @@
 # CV Final Project: Inverse Segmentation
 
+Model URL : 
+Demo Video : https://youtu.be/OyJVbbEGA3g
+
 ## 模型介紹
 改自[SinGAN](https://github.com/tamarott/SinGAN)程式碼，分別使用不同的dataset_size，在每一層金字塔訓練多少次(niter)，有沒有加LayerNorm，和在conv加入dropout
 
