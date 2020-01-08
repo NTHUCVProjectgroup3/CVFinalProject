@@ -5,7 +5,7 @@ Model URL :
 Demo Video : https://youtu.be/OyJVbbEGA3g
 
 ## 模型介紹
-改自[SinGAN](https://github.com/tamarott/SinGAN)程式碼，分別使用不同的dataset_size，在每一層金字塔訓練多少次(niter)，有沒有加LayerNorm，和在conv加入dropout
+改自 [SinGAN](https://github.com/tamarott/SinGAN) 程式碼，分別使用不同的 Dataset_size / 有沒有加 LayerNorm / 在 conv 加入 dropout 層
 
 | Model Name   | type     | datasize | niter | LayerNorm | dropout   |
 | ------------ | -------- | -------- | ----- | --------- | --------- |
@@ -17,14 +17,16 @@ Demo Video : https://youtu.be/OyJVbbEGA3g
 | SinGAN_typeF | SinGAN_D | 4        | 500   | N/A       | Yes (0.1) |
 
 ## 需要以下的套件
-建議電腦配備
+
+- 建議電腦配備
 ```
-GPU:Geforce RTX2080Ti 11G
-OS:Ubuntu 16.04 LTS, 18.04 LTS
-cuda版本:10.1
-cudnn版本:7.6.5
+GPU : Geforce RTX2080Ti 11G
+OS  : Ubuntu 16.04 LTS, 18.04 LTS
+Cuda Version  : 10.1
+Cudnn Version : 7.6.5
 ```
-python 所需要的套件
+
+- python 所需要的套件
 ```
 matplotlib
 scikit-image
@@ -38,8 +40,8 @@ opencv-python==4.1.1.26
 imgaug
 ```
 ## 如何Training
-1. 將目錄移置**Model Name**底下`cd ${your_model_path}`
-2. 鍵入指令`python -W ignore seg_train.py`就可以開始訓練，每次訓練都會把Model 放置在 `TrainedModels/cityscapes/scale_factor=0.750000_seg/` 底下，輸出的亂數影像也會在同個目錄。
+1. 將目錄移置 **Model Name** 底下 `cd ${your_model_path}`
+2. 鍵入指令 `python -W ignore seg_train.py` 就可以開始訓練，每次訓練都會把 Model 放置在 `TrainedModels/cityscapes/scale_factor=0.750000_seg/` 底下，輸出的亂數影像也會在同個目錄。
 
 ## 圖片測試
 **請使用python3.7執行**
