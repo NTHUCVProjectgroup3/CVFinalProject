@@ -8,3 +8,7 @@ batch.txt
 *.png
 *.jpg
 *.pth
+.*.py
+*.DS_Store
+*/ttttt.py
+*/*.pyc
