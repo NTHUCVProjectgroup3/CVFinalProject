@@ -2,7 +2,9 @@
 
 
 ## 模型介紹
-改自 [SinGAN](https://github.com/tamarott/SinGAN) 程式碼，分別使用不同的 Dataset_size / 有沒有加 LayerNorm / 在 conv 加入 dropout 層
+本作品使用[pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix)以及[SinGAN](https://github.com/tamarott/SinGAN)這兩個Model
+
+以下為改自 [SinGAN](https://github.com/tamarott/SinGAN) 參數，分別使用不同的 Dataset_size / 有沒有加 LayerNorm / 在 conv 加入 dropout 層
 
 | Model Name   | type     | datasize | niter | LayerNorm | dropout   |
 | ------------ | -------- | -------- | ----- | --------- | --------- |
@@ -35,6 +37,8 @@ torchvision
 Pillow
 opencv-python==4.1.1.26
 imgaug
+dominate>=2.3.1
+visdom>=0.1.8.3
 ```
 ## Trained Models
 [Google Drive](https://drive.google.com/open?id=1H1uDzzwi7uClEY_lJEsyMarji3RX-ckb)
