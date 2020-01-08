@@ -43,8 +43,12 @@ visdom>=0.1.8.3
 ## Trained Models
 [Google Drive](https://drive.google.com/open?id=1H1uDzzwi7uClEY_lJEsyMarji3RX-ckb)
 
+## Datasets Preprocessing
+1. 在主目錄建立 `CV_project/datasets` 資料夾
+2. 將**DataSets**放置在主目錄 `CV_project/datasets` 裡面，使用**cityscapes**
+
 ## 如何Training
-1. 將目錄移置 **Model Name** 底下 `cd ${your_model_path}`
+1. 將目前位置移置 **Model Name** 底下 `cd ${your_model_path}`
   - example : `cd SinGAN_C_typeA`
 2. 鍵入指令 `python -W ignore seg_train.py` 就可以開始訓練
 3. 每次訓練都會把 Model 放置在當前目錄的 `TrainedModels/cityscapes/scale_factor=0.750000_seg/` 底下，
