@@ -1,8 +1,5 @@
 # CV Final Project: Inverse Segmentation
 
-Model URL : 
-
-Demo Video : https://youtu.be/OyJVbbEGA3g
 
 ## 模型介紹
 改自 [SinGAN](https://github.com/tamarott/SinGAN) 程式碼，分別使用不同的 Dataset_size / 有沒有加 LayerNorm / 在 conv 加入 dropout 層
@@ -39,9 +36,16 @@ Pillow
 opencv-python==4.1.1.26
 imgaug
 ```
+## Trained Models
+[Google Drive](https://drive.google.com/open?id=1H1uDzzwi7uClEY_lJEsyMarji3RX-ckb)
+
 ## 如何Training
 1. 將目錄移置 **Model Name** 底下 `cd ${your_model_path}`
-2. 鍵入指令 `python -W ignore seg_train.py` 就可以開始訓練，每次訓練都會把 Model 放置在 `TrainedModels/cityscapes/scale_factor=0.750000_seg/` 底下，輸出的亂數影像也會在同個目錄。
+  - example : `cd SinGAN_C_typeA`
+2. 鍵入指令 `python -W ignore seg_train.py` 就可以開始訓練
+3. 每次訓練都會把 Model 放置在當前目錄的 `TrainedModels/cityscapes/scale_factor=0.750000_seg/` 底下，
+4. 輸出的亂數影像也會在同個目錄。
+
 
 ## 圖片測試
 **請使用python3.7執行**
@@ -49,4 +53,8 @@ imgaug
 python running.py --input_picture ${your_seg_image} --singan_model_dir ${your_model_name} --singan_model ${your_trained_model_name}
 ```
 - `${your_trained_model_name}`會放在`./${your_model_name}/TrainedModels/`下
-- 建議使用類似city scape的(segmentation, real image) pair 測試
+- 建議使用類似cityscapes的(segmentation, real image) pair 測試
+
+## Demo
+[Demo Video](https://youtu.be/OyJVbbEGA3g)
+
