@@ -42,6 +42,17 @@ visdom>=0.1.8.3
 ```
 ## Trained Models
 [Google Drive](https://drive.google.com/open?id=1H1uDzzwi7uClEY_lJEsyMarji3RX-ckb)
+- 對於**pix2pix**
+1. 在雲端內進入 `pix2pix/cityUnetmix2` 目錄
+2. 選擇 `latest_net_G.pth` 下載
+3. 將下載好的model放入主目錄下，並且輸入正確的目錄位址
+- 對於**SinGAN**
+1. 進入想要下載的SinGAN Type目錄
+2. 進入到`TrainedModels/cityscapes/scale_factor=0.750000_seg/`
+3. 將所有的`*.pth`下載
+4. 對於主目錄，進入與**想要下載的SinGAN Type**同目錄
+5. 進入到`TrainedModels/cityscapes/scale_factor=0.750000_seg/`
+6. 將所有下載的四個model移至這裡
 
 ## Datasets Preprocessing
 1. 在主目錄建立 `CV_project/datasets` 資料夾
@@ -67,8 +78,8 @@ python running.py --input_picture ${your_seg_image} --pix2pix_path ${pix2pix_mod
 python running.py --input_picture ${your_seg_image} --singan_model_dir ${your_model_name} --singan_model ${your_trained_model_name} --mode B --source_picture ${real_image_of_your_seg_image}
 ```
 > - `${your_trained_model_name}`會放在`./${your_model_name}/TrainedModels/`下
-> - 建議使用類似cityscapes的(segmentation, real image) pair 測試
 > - `${real_image_of_your_seg_image}` 是相對於 `${your_seg_image}` 的真實照片
+- 建議使用類似cityscapes的(segmentation, real image) pair 測試
 
 ## Demo
 [Demo Video](https://youtu.be/OyJVbbEGA3g)
