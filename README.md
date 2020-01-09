@@ -57,11 +57,18 @@ visdom>=0.1.8.3
 
 ## 圖片測試
 **請使用python3.7執行**
+- 對於 **Pix2Pix**
 ```bash=linux
-python running.py --input_picture ${your_seg_image} --singan_model_dir ${your_model_name} --singan_model ${your_trained_model_name}
+python running.py --input_picture ${your_seg_image} --pix2pix_path ${pix2pix_model_path} --source_picture ${real_image_of_your_seg_image}
 ```
-- `${your_trained_model_name}`會放在`./${your_model_name}/TrainedModels/`下
-- 建議使用類似cityscapes的(segmentation, real image) pair 測試
+> - `${real_image_of_your_seg_image}` 是相對於 `${your_seg_image}` 的真實照片
+- 對於 **SinGAN**
+```bash=linux
+python running.py --input_picture ${your_seg_image} --singan_model_dir ${your_model_name} --singan_model ${your_trained_model_name} --mode B --source_picture ${real_image_of_your_seg_image}
+```
+> - `${your_trained_model_name}`會放在`./${your_model_name}/TrainedModels/`下
+> - 建議使用類似cityscapes的(segmentation, real image) pair 測試
+> - `${real_image_of_your_seg_image}` 是相對於 `${your_seg_image}` 的真實照片
 
 ## Demo
 [Demo Video](https://youtu.be/OyJVbbEGA3g)
